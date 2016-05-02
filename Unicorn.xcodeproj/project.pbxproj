@@ -20,7 +20,7 @@
 		657187361CCBEC2600A8DB13 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657187351CCBEC2600A8DB13 /* Task.swift */; };
 		657187381CCBEF0800A8DB13 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657187371CCBEF0800A8DB13 /* TaskDetailViewController.swift */; };
 		6571873A1CCBEF3700A8DB13 /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657187391CCBEF3700A8DB13 /* CreateTaskViewController.swift */; };
-		657FCD561CD7203200A1C72E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 657FCD541CD7203200A1C72E /* Main.storyboard */; };
+		657A8C3C1CD7E7DD0095CE98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 657A8C3A1CD7E7DD0095CE98 /* Main.storyboard */; };
 		657FCD5C1CD7451B00A1C72E /* UserTaskFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657FCD5B1CD7451B00A1C72E /* UserTaskFeedTableViewController.swift */; };
 		9B387EFD1CD70D2E00719358 /* NerissaLin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B387EFC1CD70D2E00719358 /* NerissaLin.jpg */; };
 		9B387EFF1CD70DA200719358 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B387EFE1CD70DA200719358 /* UserProfileViewController.swift */; };
@@ -63,7 +63,7 @@
 		657187351CCBEC2600A8DB13 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		657187371CCBEF0800A8DB13 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		657187391CCBEF3700A8DB13 /* CreateTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
-		657FCD551CD7203200A1C72E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "../../../Downloads/Unicorn-2/Unicorn/Base.lproj/Main.storyboard"; sourceTree = "<group>"; };
+		657A8C3B1CD7E7DD0095CE98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		657FCD5B1CD7451B00A1C72E /* UserTaskFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTaskFeedTableViewController.swift; sourceTree = "<group>"; };
 		9B387EFC1CD70D2E00719358 /* NerissaLin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = NerissaLin.jpg; path = Views/NerissaLin.jpg; sourceTree = SOURCE_ROOT; };
 		9B387EFE1CD70DA200719358 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 		657187311CCBEB2D00A8DB13 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				657FCD541CD7203200A1C72E /* Main.storyboard */,
+				657A8C3A1CD7E7DD0095CE98 /* Main.storyboard */,
 				9B387EFC1CD70D2E00719358 /* NerissaLin.jpg */,
 			);
 			name = View;
@@ -247,6 +247,7 @@
 				TargetAttributes = {
 					657186FC1CCBEA6400A8DB13 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 5HQY54N6KP;
 					};
 					657187121CCBEA6500A8DB13 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -286,7 +287,7 @@
 				6571870D1CCBEA6500A8DB13 /* LaunchScreen.storyboard in Resources */,
 				9B387EFD1CD70D2E00719358 /* NerissaLin.jpg in Resources */,
 				6571870A1CCBEA6500A8DB13 /* Assets.xcassets in Resources */,
-				657FCD561CD7203200A1C72E /* Main.storyboard in Resources */,
+				657A8C3C1CD7E7DD0095CE98 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,10 +366,10 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		657FCD541CD7203200A1C72E /* Main.storyboard */ = {
+		657A8C3A1CD7E7DD0095CE98 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				657FCD551CD7203200A1C72E /* Base */,
+				657A8C3B1CD7E7DD0095CE98 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -463,10 +464,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Unicorn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicolerasquinha.Unicorn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -474,10 +478,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Unicorn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicolerasquinha.Unicorn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

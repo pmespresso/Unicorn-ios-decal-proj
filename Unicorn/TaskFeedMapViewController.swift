@@ -19,73 +19,36 @@ class TaskFeedMapViewController: UIViewController, MKMapViewDelegate, CLLocation
     
     var tasks:[Task!]! = []
     var task:Task!
-    var people:People! = People()
     var locations:[MKCoordinateRegion]! = []
     let locationManager = CLLocationManager()
+    
+    var specificLocation : MKCoordinateRegion!
     
     private let reuseIdentifier = "TaskCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        
-        //        self.taskFeedMap.delegate = self
-        
+        // Do any additional setup after loading the view, typically from a nibs
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
         self.taskFeedMapView.showsUserLocation = true
-        
-        
-        
-        // THIS WORKS NewYork Pin
-        
-        let newYorkLocation = CLLocationCoordinate2DMake(40.730872, -74.003066)
-        // Drop a pin
-        let dropPin = MKPointAnnotation()
-        dropPin.coordinate = newYorkLocation
-        dropPin.title = "New York City"
-        taskFeedMapView.addAnnotation(dropPin)
-//        
-//        for task in people.exampleFeed {
-//            
-//            
-//            print(task)
-//            locations.append(taskLocation)
-////            dropPin.title = "Test"
-////            taskFeedMapView.addAnnotation(dropPin)
-//            
-//            
-//        }
-        
+
+        //  THIS IS TO POPULATE MAP WITH ALL TASKS
+        for task in People.exampleFeed {
+            let dropPin = MKPointAnnotation()
+            dropPin.coordinate = task.location.center
+            dropPin.title = task.taskName
+            
+            taskFeedMapView.addAnnotation(dropPin)
+        }
     }
+
+    // Make annotations tappable, so they take the user to the annotation's task detail view
     
     
-    // Map Delegate Methods
-//        func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-//            if (annotation is MKUserLocation) {
-//                return nil
-//            }
-//    
-//            if (annotation.isKindOfClass(CustomAnnotation)) {
-//                let customAnnotation = annotation as? CustomAnnotation
-//                mapView.translatesAutoresizingMaskIntoConstraints = false
-//                var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier("CustomAnnotation") as MKAnnotationView!
-//    
-//                if (annotationView == nil) {
-//                    annotationView = customAnnotation?.annotationView()
-//                } else {
-//                    annotationView.annotation = annotation;
-//                }
-//    
-//                self.addBounceAnimationToView(annotationView)
-//                return annotationView
-//            } else {
-//                return nil
-//            }
-//        }
+    
     
     
 }

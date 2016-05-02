@@ -26,7 +26,7 @@ class Task {
     /* Task status: complete/running/requesting/inactive */
     var status : String!
     
-    init(taskName: String, taskDesc: String, taskLikes: Int, userPosted: String, status: String, location: MKCoordinateRegion, expires: NSDate) {
+    init(taskName: String, taskDesc: String, taskLikes: Int, userPosted: String, status: String, expires: NSDate, location: MKCoordinateRegion) {
 
         self.taskName = taskName
         self.taskDesc = taskDesc

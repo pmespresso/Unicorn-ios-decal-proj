@@ -41,6 +41,12 @@ class TaskDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
         // When a task is accepted, the task's status attribute should be changed to 'ongoing'.
         //TODO
         // User should also be redirected to the map view
+        let acceptedTask = Task(taskName: nameDetail, taskDesc: descriptionDetail, taskLikes: likesDetail, userPosted: userPosted, status: "active", expires: expiresIn, location: location)
+        
+        let acceptingUser = People.peopleDatabase.valueForKey("YJ Kim") as! User
+        acceptingUser.requestedTasks.append(acceptedTask)
+        
+        self.performSegueWithIdentifier("AcceptTaskSegue", sender: sender)
     }
     
     override func viewDidLoad() {
@@ -85,9 +91,18 @@ class TaskDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destinationNavigationController = segue.destinationViewController as! UINavigationController
-        let targetController = destinationNavigationController.topViewController as! UserProfileViewController
-        targetController.profileName = userPosted
         
+        //temporary hack because i don't wanna dig through storyboard.
+        if segue.identifier == "AcceptTaskSegue" {
+            let destController = segue.destinationViewController as! TaskFeedMapViewController
+            destController.specificLocation = self.location
+        }
+        else {
+            let destinationNavigationController = segue.destinationViewController as! UINavigationController
+            let targetController = destinationNavigationController.topViewController as! UserProfileViewController
+            targetController.profileName = userPosted
+        }
+        
+    
     }
 }

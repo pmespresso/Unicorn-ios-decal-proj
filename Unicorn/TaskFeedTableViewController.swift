@@ -23,9 +23,10 @@ class TaskFeedTableViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         taskFeedTable.delegate = self
         taskFeedTable.dataSource = self
-        for i in people.exampleFeed {
+        for i in People.exampleFeed {
             tasks.append(i)
         }
+        print("loading view")
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,8 +66,8 @@ class TaskFeedTableViewController: UITableViewController {
             destViewController.descriptionDetail = task.taskDesc
             destViewController.userPosted = task.userPosted
             destViewController.likesDetail = task.taskLikes
-            destViewController.location = task.location
             destViewController.expiresIn = task.expires
+            destViewController.location = task.location
         }
         
         

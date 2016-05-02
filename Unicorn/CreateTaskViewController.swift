@@ -27,7 +27,7 @@ class CreateTaskViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     var region:MKCoordinateRegion!
     
-    var date:NSDate!
+    var date:NSDate = NSDate()
     
     @IBAction func datePickerAction(sender: AnyObject) {
         let dateFormatter = NSDateFormatter()
@@ -46,7 +46,7 @@ class CreateTaskViewController: UIViewController, MKMapViewDelegate, CLLocationM
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
-    self.locationManager.startUpdatingLocation()
+        self.locationManager.startUpdatingLocation()
         self.locationMap.showsUserLocation = true
     }
 
@@ -80,14 +80,15 @@ class CreateTaskViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //TODO : User Friendly error when fields are blank.
-        let center = CLLocationCoordinate2D(
-            latitude: 16.40,
-            longitude: -86.34
-        )
-        taskToAdd = Task(taskName: taskTitleField.text!, taskDesc: taskDescField.text!, taskLikes: 0, userPosted: "YJ Kim", status: "inactive", location: MKCoordinateRegion(center: center, span: MKCoordinateSpanMake(1, 1)), expires: self.date)
+        if self.region == nil {
+            self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(
+                latitude: 34.052235,
+                longitude: -118.243683
+                ), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
+        }
+        taskToAdd = Task(taskName: taskTitleField.text!, taskDesc: taskDescField.text!, taskLikes: 0, userPosted: "YJ Kim", status: "inactive", expires: self.date, location: self.region)
         
-        let destController = segue.destinationViewController as! TaskFeedTableViewController
-        destController.tasks.append(taskToAdd)
+        People.addTask(taskToAdd)
     }
     
 }

@@ -13,7 +13,6 @@ import CoreLocation
 class UserProfileViewController: UIViewController {
     
     var profileName: String!
-    var people: People = People()
     var user: User!
     
     @IBOutlet var userRating: UILabel!
@@ -26,7 +25,7 @@ class UserProfileViewController: UIViewController {
         if profileName == nil {
             profileName = "YJ Kim"
         }
-        self.user = people.peopleDatabase.valueForKey(profileName) as! User
+        self.user = People.peopleDatabase.valueForKey(profileName) as! User
         userProfileName.title = profileName
         userRating.text = String("Rating: ") + String(user.rating)
         
